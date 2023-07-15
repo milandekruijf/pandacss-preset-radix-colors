@@ -1,5 +1,5 @@
 {
-  "name": "pandacss-preset-radix-colors3",
+  "name": "@milandekruijf/test1",
   "version": "1.0.0",
   "author": "Milan de Kruijf <contact@milandekruijf.com>",
   "keywords": [
@@ -21,7 +21,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup",
-    "publish": "pnpm build && pnpm publish"
+    "prepublish": "pnpm build"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.6.0",

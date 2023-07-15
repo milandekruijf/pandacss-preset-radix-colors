@@ -1,5 +1,5 @@
 {
-  "name": "pandacss-preset-radix-colors",
+  "name": "pandacss-preset-radix-colors3",
   "version": "1.0.0",
   "author": "Milan de Kruijf <contact@milandekruijf.com>",
   "keywords": [
@@ -8,15 +8,20 @@
     "radix",
     "colors"
   ],
-  "repository": "https://github.com/milandekruijf/pandacss-preset-radix-colors",
-  "bugs": "https://github.com/milandekruijf/pandacss-preset-radix-colors/issues",
-  "homepage": "https://github.com/milandekruijf/pandacss-preset-radix-colors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milandekruijf/pandacss-preset-radix-colors.git"
+  },
+  "bugs": {
+    "url": "https://github.com/milandekruijf/pandacss-preset-radix-colors/issues"
+  },
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "publish": "pnpm build && pnpm publish"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.6.0",

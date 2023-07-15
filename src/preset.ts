@@ -5,7 +5,7 @@ export interface PresetOptions {
   // darkMode?: boolean | { condition: string };
 }
 
-export default function (options: PresetOptions) {
+export default function (options?: PresetOptions) {
   // const darkMode = options.darkMode ?? false;
 
   return definePreset({

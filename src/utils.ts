@@ -3,7 +3,14 @@ import * as colors from "@radix-ui/colors";
 export function getColorTokens() {
   const mappedData = getMappedData();
 
-  return mergeMap(mappedData, (x) => keysToObjectWithValue(x.keys, x.scales));
+  return mergeMap(mappedData, (x) => {
+    const scales = objectListToObject(
+      Object.entries(x.scales).map(([i, value]) => ({
+        [i]: { value },
+      }))
+    );
+    return keysToObjectWithValue(x.keys, scales);
+  });
 }
 
 export function mergeMap<T>(arr: T[], fn: (v: T) => any) {

@@ -4,12 +4,12 @@ export function getColorTokens() {
   const mappedData = getMappedData();
 
   return mergeMap(mappedData, (x) => {
-    const scales = objectListToObject(
-      Object.entries(x.scales).map(([i, value]) => ({
-        [i]: { value },
-      }))
-    );
-    return keysToObjectWithValue(x.keys, scales);
+    let mappedScales = Object.entries(x.scales).map(([i, value]) => ({
+      [i]: { value },
+    }));
+    mappedScales = objectListToObject(mappedScales);
+
+    return keysToObjectWithValue(x.keys, mappedScales);
   });
 }
 

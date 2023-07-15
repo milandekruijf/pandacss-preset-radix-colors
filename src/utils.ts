@@ -34,13 +34,12 @@ export function getMappedData() {
     // Map the scale values to the index of the
     // scale they are in. This works because
     // radix indexes their colors from 1 to 12
-    scales = objectListToObject(
-      Object.values(scales).map((shade, i) => ({
-        [i + 1]: shade,
-      }))
-    );
+    let mappedScales = Object.values(scales).map((shade, i) => ({
+      [i + 1]: shade,
+    }));
+    mappedScales = objectListToObject(mappedScales);
 
-    return { name, keys, path, dark, alpha, scales };
+    return { name, keys, path, dark, alpha, scales: mappedScales };
   });
 }
 

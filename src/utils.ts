@@ -1,14 +1,46 @@
 import * as colors from "@radix-ui/colors";
 
+export const MAPPED_DATA = getMappedData();
+export const COLOR_TOKENS = getColorTokens();
+
 /**
  * Get color tokens usable in PandaCSS's preset/config.
  */
 export function getColorTokens() {
-  const mappedData = getMappedData();
-  return mergeObjectMap(mappedData, (x) => {
+  return mergeObjectMap(MAPPED_DATA, (x) => {
     let mappedScales = Object.entries(x.scales).map(([i, value]) => ({
       [i]: { value },
     }));
+    mappedScales = objectListToObject(mappedScales);
+    return keysToObjectWithValue(x.keys, mappedScales);
+  });
+}
+
+/**
+ * Get semantic color tokens usable in PandaCSS's
+ * preset/config for dark mode.
+ */
+export function getSemanticColorTokens() {
+  // We don't need dark colors or black and white for semantic tokens
+  const filteredMappedData = MAPPED_DATA.filter(
+    (x) => !x.dark && x.name !== "black" && x.name !== "white"
+  );
+  return mergeObjectMap(filteredMappedData, (x) => {
+    let mappedScales = Object.keys(x.scales).map((scale) => {
+      // Since we do not include dark colors in the map,
+      // we can simulate the path by adding ".dark" to the path
+      const darkPath = x.alpha
+        ? `${x.path.split(".a")[0]}.dark.a`
+        : `${x.path}.dark`;
+      return {
+        [scale]: {
+          value: {
+            base: `{colors.${x.path}.${scale}}`,
+            _dark: `{colors.${darkPath}.${scale}}`,
+          },
+        },
+      };
+    });
     mappedScales = objectListToObject(mappedScales);
     return keysToObjectWithValue(x.keys, mappedScales);
   });

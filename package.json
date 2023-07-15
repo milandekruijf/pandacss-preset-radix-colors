@@ -1,7 +1,8 @@
 {
-  "name": "pandacss-preset-radix-colors4",
+  "name": "pandacss-preset-radix-colors",
   "version": "1.0.0",
   "author": "Milan de Kruijf <contact@milandekruijf.com>",
+  "license": "MIT",
   "keywords": [
     "pandacss",
     "preset",
@@ -15,7 +16,6 @@
   "bugs": {
     "url": "https://github.com/milandekruijf/pandacss-preset-radix-colors/issues"
   },
-  "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",

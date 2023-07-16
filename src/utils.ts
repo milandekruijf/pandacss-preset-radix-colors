@@ -1,12 +1,42 @@
 import * as colors from "@radix-ui/colors";
+import type { Tokens, SemanticTokens } from "@pandacss/types";
 
-export const MAPPED_RADIX_COLORS_DATA = getMappedData();
+/**
+ * Constant of {@link getMappedRadixColorsData} because you only
+ * have to call it once and it will always be the same.
+ */
+export const MAPPED_RADIX_COLORS_DATA = getMappedRadixColorsData();
+
+/**
+ * Constant of {@link getColorTokens} because you only
+ * have to call it once and it will always be the same.
+ */
 export const COLOR_TOKENS = getColorTokens();
 
 /**
- * Get color tokens usable in PandaCSS's preset/config.
+ * Constant of {@link getSemanticColorTokens} because you only
+ * have to call it once and it will always be the same.
  */
-export function getColorTokens() {
+export const SEMANTIC_COLOR_TOKENS = getSemanticColorTokens();
+
+/**
+ * The color tokens type. Currently doesn't infer the
+ * actual types, but it contains the general structure.
+ */
+export type ColorTokens = Tokens["colors"];
+
+/**
+ * The semantic color tokens type. Currently doesn't infer the
+ * actual types, but it contains the general structure.
+ */
+export type SemanticColorTokens = SemanticTokens["colors"];
+
+/**
+ * Get color tokens usable in PandaCSS's preset/config.
+ *
+ * @returns The color tokens
+ */
+export function getColorTokens(): ColorTokens {
   return mergeObjectMap(MAPPED_RADIX_COLORS_DATA, (x) => {
     let mappedScales = Object.entries(x.scales).map(([i, value]) => ({
       [i]: { value },
@@ -19,8 +49,10 @@ export function getColorTokens() {
 /**
  * Get semantic color tokens usable in PandaCSS's
  * preset/config for dark mode.
+ *
+ * @returns The semantic color tokens
  */
-export function getSemanticColorTokens() {
+export function getSemanticColorTokens(): SemanticColorTokens {
   // We don't need dark colors or black and white for semantic tokens
   const filteredMappedData = MAPPED_RADIX_COLORS_DATA.filter(
     (x) => !x.dark && x.name !== "black" && x.name !== "white"
@@ -61,7 +93,7 @@ export function mergeObjectMap<T>(arr: T[], fn: (v: T) => any) {
  * Mapping the data we get from `@radix-ui/colors` into
  * something more usable for us.
  */
-export function getMappedData() {
+export function getMappedRadixColorsData() {
   return Object.entries(colors).map(([name, scales]) => {
     const keys = nameToKeys(name);
     const path = keysToPath(keys);

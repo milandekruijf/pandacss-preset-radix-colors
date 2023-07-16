@@ -22,6 +22,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "prepublish": "pnpm build"
@@ -36,5 +39,6 @@
   "peerDependencies": {
     "@pandacss/dev": ">=0.0.1",
     "@radix-ui/colors": ">=0.1.0"
-  }
+  },
+  "packageManager": "pnpm@8.6.7"
 }

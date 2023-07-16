@@ -5,7 +5,7 @@ Brings [Radix Colors](https://www.radix-ui.com/colors) to [PandaCSS](https://pan
 ## Installation
 
 ```bash
-npm install --save-dev pandacss-preset-radix-colors @pandacss/preset-base @pandacss/preset-panda
+npm install --save-dev pandacss-preset-radix-colors @radix-ui/colors @pandacss/preset-base @pandacss/preset-panda
 ```
 
 ## Usage

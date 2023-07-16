@@ -32,5 +32,9 @@
     "@radix-ui/colors": "^1.0.0",
     "@types/node": "^20.4.2",
     "tsup": "^7.1.0"
+  },
+  "peerDependencies": {
+    "@pandacss/dev": ">=0.6.0",
+    "@radix-ui/colors": ">=1.0.0"
   }
 }

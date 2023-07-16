@@ -34,7 +34,7 @@
     "tsup": "^7.1.0"
   },
   "peerDependencies": {
-    "@pandacss/dev": ">=0.6.0",
-    "@radix-ui/colors": ">=1.0.0"
+    "@pandacss/dev": ">=0.0.1",
+    "@radix-ui/colors": ">=0.1.0"
   }
 }

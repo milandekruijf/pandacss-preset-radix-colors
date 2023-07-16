@@ -5,7 +5,7 @@ Brings [Radix Colors](https://www.radix-ui.com/colors) to [PandaCSS](https://pan
 ## Installation
 
 ```bash
-npm install --save-dev pandacss-preset-radix-colors @radix-ui/colors @pandacss/preset-base @pandacss/preset-panda
+npm install --save-dev pandacss-preset-radix-colors @radix-ui/colors
 ```
 
 ## Usage
@@ -14,15 +14,18 @@ Add the preset to your PandaCSS configuration (`panda.config.ts`)
 
 ```ts
 import { defineConfig } from "@pandacss/dev";
+
+// Import the preset. The name can be anything you want
 import radixColorsPreset from "pandacss-preset-radix-colors";
 
-// Import the base presets from PandaCSS because otherwise
-// they will be overwritten by the radix colors preset.
-import pandaBasePreset from "@pandacss/preset-base";
-import pandaCorePreset from "@pandacss/preset-panda";
-
 export default defineConfig({
-  presets: [radixColorsPreset(), pandaCorePreset, pandaBasePreset],
+  presets: [
+    radixColorsPreset(),
+    // Re-add the base and panda presets because otherwise
+    // they will be removed entirely
+    "@pandacss/preset-base",
+    "@pandacss/preset-panda",
+  ],
 });
 ```
 

@@ -63,4 +63,4 @@ css({
 ## Attributions
 
 - [Radix UI](https://github.com/radix-ui) team for creating the wonderfully crafted colors
-- [Chakra](https://chakra-ui.com/) team for creating PandaCSS
+- [Chakra](https://github.com/chakra-ui) team for creating PandaCSS

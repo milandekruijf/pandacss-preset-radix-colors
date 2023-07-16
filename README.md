@@ -76,7 +76,7 @@ css({
 [contributors-url]: https://github.com/milandekruijf/pandacss-preset-radix-colors/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/milandekruijf/pandacss-preset-radix-colors.svg?style=for-the-badge
 [forks-url]: https://github.com/milandekruijf/pandacss-preset-radix-colors/network/members
-[stars-shield]: https://img.shields.io/github/starsmilandekruijf/pandacss-preset-radix-colors.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/milandekruijf/pandacss-preset-radix-colors.svg?style=for-the-badge
 [stars-url]: https://github.com/milandekruijf/pandacss-preset-radix-colors/stargazers
 [issues-shield]: https://img.shields.io/github/issues/milandekruijf/pandacss-preset-radix-colors.svg?style=for-the-badge
 [issues-url]: https://github.com/milandekruijf/pandacss-preset-radix-colors/issues

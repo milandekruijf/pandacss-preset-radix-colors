@@ -1,7 +1,7 @@
 import { definePreset } from "@pandacss/dev";
 import { COLOR_TOKENS, getSemanticColorTokens } from "./utils";
 
-export const DEFAULT_CONDITION = ".dark &";
+export const DEFAULT_DARK_MODE_CONDITION = ".dark &";
 
 /**
  * Options for the preset.
@@ -29,14 +29,14 @@ export interface PresetOptions {
  * @param options The preset options
  * @returns The preset
  */
-export default function (options?: PresetOptions) {
+export default function createPreset(options?: PresetOptions) {
   const darkMode = options?.darkMode ?? false;
 
   // Get the dark mode condition if dark mode is enabled
   const darkModeCondition = darkMode
     ? typeof darkMode === "object"
       ? darkMode.condition
-      : DEFAULT_CONDITION
+      : DEFAULT_DARK_MODE_CONDITION
     : undefined;
 
   // We do not need to generate semantic color tokens if dark mode is not enabled

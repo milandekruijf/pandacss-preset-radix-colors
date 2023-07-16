@@ -1,13 +1,13 @@
 import * as colors from "@radix-ui/colors";
 
-export const MAPPED_DATA = getMappedData();
+export const MAPPED_RADIX_COLORS_DATA = getMappedData();
 export const COLOR_TOKENS = getColorTokens();
 
 /**
  * Get color tokens usable in PandaCSS's preset/config.
  */
 export function getColorTokens() {
-  return mergeObjectMap(MAPPED_DATA, (x) => {
+  return mergeObjectMap(MAPPED_RADIX_COLORS_DATA, (x) => {
     let mappedScales = Object.entries(x.scales).map(([i, value]) => ({
       [i]: { value },
     }));
@@ -22,7 +22,7 @@ export function getColorTokens() {
  */
 export function getSemanticColorTokens() {
   // We don't need dark colors or black and white for semantic tokens
-  const filteredMappedData = MAPPED_DATA.filter(
+  const filteredMappedData = MAPPED_RADIX_COLORS_DATA.filter(
     (x) => !x.dark && x.name !== "black" && x.name !== "white"
   );
   return mergeObjectMap(filteredMappedData, (x) => {

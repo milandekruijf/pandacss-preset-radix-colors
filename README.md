@@ -36,11 +36,15 @@ export default defineConfig({
 });
 ```
 
+### Good to know
+
+The tokens have a different format than you would probably expect. All color names are split up on every capital letter and number, so you would get token paths such as `slate.dark.a.1`, `slate.a.1` and `slate.1` instead of `slateDarkA1`, `slateA1` and `slate1`.
+
 ## Options
 
 ### Dark mode
 
-You can add dark mode support by setting `darkMode` to `true`. The default condition has been set to `.dark &`, which can be changed as shown below
+You can add dark mode support by setting `darkMode` to `true`. The default condition has been set to `.dark &`, which can be changed as shown below. [Learn more about conditions here](https://panda-css.com/docs/customization/conditions).
 
 ```ts
 ...
@@ -54,18 +58,7 @@ presets: [
 ],
 ```
 
-And then you can conditionally style for dark mode using the `_dark` modifier. [Learn more](https://panda-css.com/docs/concepts/conditional-styles)
-
-```ts
-// Also works with cva or config recipes
-css({
-  color: "slate.1",
-  // Overwrite the color when the mode is set to dark
-  _dark: {
-    color: "slate.11",
-  },
-});
-```
+Using base colors such as `slate.1` or `slate.a.1` would turn into `slate.dark.1` and `slate.dark.a.1` automatically when your condition is met.
 
 ## Attributions
 

@@ -5,10 +5,14 @@
   "description": "Brings Radix Colors to PandaCSS",
   "license": "MIT",
   "keywords": [
-    "pandacss",
+    "css",
+    "styling",
     "preset",
-    "radix",
-    "colors"
+    "dark-mode",
+    "chakra-ui",
+    "radix-ui",
+    "pandacss",
+    "radix-colors"
   ],
   "repository": {
     "type": "git",

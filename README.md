@@ -1,3 +1,4 @@
+[![Downloads][npm-shield]][npm-url]
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -77,3 +78,5 @@ Using base colors such as `slate.1` or `slate.a.1` would turn into `slate.dark.1
 [license-url]: https://github.com/milandekruijf/pandacss-preset-radix-colors/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/milandekruijf
+[npm-shield]: https://img.shields.io/npm/dw/pandacss-preset-radix-colors?style=for-the-badge
+[npm-url]: https://www.npmjs.com/package/pandacss-preset-radix-colors

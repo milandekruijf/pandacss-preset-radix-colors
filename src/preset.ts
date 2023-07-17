@@ -51,11 +51,13 @@ export default function createPreset(options?: PresetOptions): Preset {
     : undefined;
 
   // We do not need to generate semantic color tokens if dark mode is not enabled
-  const semanticColorTokens = darkMode ? SEMANTIC_COLOR_TOKENS : undefined;
+  const semanticColorTokens = darkMode ? SEMANTIC_COLOR_TOKENS : {};
 
   return definePreset({
     conditions: {
-      dark: darkModeCondition,
+      extend: {
+        dark: darkModeCondition,
+      },
     },
     theme: {
       extend: {

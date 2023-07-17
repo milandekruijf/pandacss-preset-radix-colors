@@ -27,7 +27,8 @@
   },
   "scripts": {
     "build": "tsup",
-    "prepublish": "pnpm build"
+    "prepublish": "pnpm build",
+    "debug": "pnpm build && panda debug -c debug/panda.config.ts"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.6.0",

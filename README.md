@@ -28,9 +28,9 @@ import radixColorsPreset from "pandacss-preset-radix-colors";
 export default defineConfig({
   presets: [
     radixColorsPreset(),
-    // Re-add the base and panda presets because otherwise
-    // they will be removed entirely
-    "@pandacss/preset-base",
+    // Re-add the panda preset if you want to keep
+    // the default keyframes, breakpoints, tokens
+    // and textStyles provided by PandaCSS
     "@pandacss/preset-panda",
   ],
 });

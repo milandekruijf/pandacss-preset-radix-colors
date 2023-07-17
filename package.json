@@ -27,7 +27,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "prepublish": "pnpm build",
+    "prepublish": "pnpm debug",
     "debug": "pnpm build && panda debug -c debug/panda.config.ts"
   },
   "devDependencies": {

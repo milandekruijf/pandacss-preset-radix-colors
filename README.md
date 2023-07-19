@@ -6,9 +6,9 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-# Radix Colors preset for PandaCSS
+# 🐼 PandaCSS preset for Radix Colors
 
-Brings [Radix Colors](https://www.radix-ui.com/colors) to [PandaCSS](https://panda-css.com/)
+Brings [Radix Colors](https://www.radix-ui.com/colors) to [🐼 PandaCSS](https://panda-css.com/)
 
 ## Installation
 
@@ -64,7 +64,7 @@ Using base colors such as `slate.1` or `slate.a.1` would turn into `slate.dark.1
 ## Attributions
 
 - [Radix](https://github.com/radix-ui) team for creating the wonderfully crafted colors
-- [Chakra](https://github.com/chakra-ui) team for creating PandaCSS
+- [Chakra](https://github.com/chakra-ui) team for creating [🐼 PandaCSS](https://panda-css.com/)
 
 [contributors-shield]: https://img.shields.io/github/contributors/milandekruijf/pandacss-preset-radix-colors.svg?style=for-the-badge
 [contributors-url]: https://github.com/milandekruijf/pandacss-preset-radix-colors/graphs/contributors

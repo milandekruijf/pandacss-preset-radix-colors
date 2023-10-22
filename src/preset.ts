@@ -1,7 +1,7 @@
 import { definePreset } from "@pandacss/dev";
 import type { Preset } from "@pandacss/types";
-
-import { COLOR_TOKENS, SEMANTIC_COLOR_TOKENS } from "./utils";
+import { getTokens } from "./tokens";
+import { getSemanticTokens } from "./semantic-tokens";
 
 /**
  * The default dark mode condition that is used
@@ -40,7 +40,7 @@ export interface PresetOptions {
  * @param options The preset options
  * @returns The preset
  */
-export default function createPreset(options?: PresetOptions): Preset {
+export function createPreset(options?: PresetOptions): Preset {
   const darkMode = options?.darkMode ?? false;
 
   // Get the dark mode condition if dark mode is enabled
@@ -49,9 +49,6 @@ export default function createPreset(options?: PresetOptions): Preset {
       ? darkMode.condition
       : DEFAULT_DARK_MODE_CONDITION
     : undefined;
-
-  // We do not need to generate semantic color tokens if dark mode is not enabled
-  const semanticColorTokens = darkMode ? SEMANTIC_COLOR_TOKENS : {};
 
   return definePreset({
     conditions: {
@@ -62,10 +59,10 @@ export default function createPreset(options?: PresetOptions): Preset {
     theme: {
       extend: {
         tokens: {
-          colors: COLOR_TOKENS,
+          colors: getTokens(),
         },
         semanticTokens: {
-          colors: semanticColorTokens,
+          colors: getSemanticTokens(),
         },
       },
     },

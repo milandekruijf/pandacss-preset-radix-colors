@@ -62,7 +62,7 @@ export function createPreset(options?: PresetOptions): Preset {
           colors: getTokens(),
         },
         semanticTokens: {
-          colors: getSemanticTokens(),
+          colors: darkMode ? getSemanticTokens() : {},
         },
       },
     },

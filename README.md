@@ -39,7 +39,7 @@ export default defineConfig({
 
 ### Good to know
 
-The tokens have a different format than you would probably expect. All color names are split up on every capital letter and number, so you would get token paths such as `slate.dark.a.1`, `slate.a.1` and `slate.1` instead of `slateDarkA1`, `slateA1` and `slate1`.
+The tokens have a different format than you would probably expect. All color names are split up on every capital letter and number, so you would get token paths such as `slate.dark.a.1`, `slate.light.a.1` and `slate.light.1` instead of `slateDarkA1`, `slateA1` and `slate1`.
 
 ## Options
 

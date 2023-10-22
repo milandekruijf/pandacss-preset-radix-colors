@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={cx(
           inter.className,
           css({
-            bg: "slate.l",
+            bg: "slate.1",
           })
         )}
       >

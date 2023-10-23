@@ -20,8 +20,8 @@ devDependencies:
     specifier: ^0.17.0
     version: 0.17.0(@internationalized/date@3.5.0)(@types/react-dom@18.2.14)(@types/react@18.2.31)(typescript@5.2.2)
   pandacss-preset-radix-colors:
-    specifier: ^0.1.2
-    version: 0.1.2(@pandacss/dev@0.17.0)(@radix-ui/colors@3.0.0)
+    specifier: ^0.1.5
+    version: 0.1.5(@pandacss/dev@0.17.0)(@radix-ui/colors@3.0.0)
   pandacss-preset-typography:
     specifier: ^0.1.4
     version: 0.1.4(@pandacss/dev@0.17.0)
@@ -3932,8 +3932,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /pandacss-preset-radix-colors@0.1.2(@pandacss/dev@0.17.0)(@radix-ui/colors@3.0.0):
-    resolution: {integrity: sha512-ElrahGw5mPQ3UxoJQ6tLwfAZKgGnpKMs/ck0HyFSwyD7yh+dcLJe5Q+GBC/RrLfZQPLRXqFjKRx3JUcToZCJBA==}
+  /pandacss-preset-radix-colors@0.1.5(@pandacss/dev@0.17.0)(@radix-ui/colors@3.0.0):
+    resolution: {integrity: sha512-oH6IFbhm8xqn6vVJonjaBaL7lBNV8VTL1ZqNInPKp7s7K+qFXTjMG1GUll4vKTkSku78hPfw5YFs+yRaw25NmQ==}
     peerDependencies:
       '@pandacss/dev': '>=0.0.1'
       '@radix-ui/colors': '>=0.1.0'

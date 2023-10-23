@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@pandacss/dev": "^0.17.0",
-    "pandacss-preset-radix-colors": "^0.1.2",
+    "pandacss-preset-radix-colors": "^0.1.5",
     "pandacss-preset-typography": "^0.1.4"
   }
 }

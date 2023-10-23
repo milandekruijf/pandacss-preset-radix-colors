@@ -28,7 +28,7 @@ export interface PresetOptions {
         condition: string;
       };
   /**
-   * Automatically choose to use the P3 variant
+   * Automatically choose to use the DCI-P3 variant
    * of a color if available when the color gamut
    * is supported using the p3 condition
    * (`@media (color-gamut: p3)`)

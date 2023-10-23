@@ -1,6 +1,6 @@
 {
   "name": "pandacss-preset-radix-colors",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Milan de Kruijf <contact@milandekruijf.com>",
   "description": "Brings Radix Colors to 🐼 PandaCSS",
   "license": "MIT",

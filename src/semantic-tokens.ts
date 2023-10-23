@@ -16,7 +16,11 @@ export function getSemanticTokens(darkMode?: boolean, autoP3?: boolean) {
 
       if (darkMode && !scale.dark && !scale.tags.includes("light"))
         darkScale = scales.find(
-          (x) => x.name === scale.name && x.alpha === scale.alpha && x.dark
+          (x) =>
+            x.name === scale.name &&
+            x.alpha === scale.alpha &&
+            x.p3 === scale.p3 &&
+            x.dark
         );
 
       if (!darkScale && autoP3 && !scale.p3)
@@ -36,6 +40,7 @@ export function getSemanticTokens(darkMode?: boolean, autoP3?: boolean) {
                 x.name === scale.name &&
                 x.alpha === scale.alpha &&
                 x.dark === scale.dark &&
+                x.p3 === scale.p3 &&
                 x.tags.includes("light")
             );
 

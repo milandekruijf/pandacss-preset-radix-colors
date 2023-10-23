@@ -2,8 +2,8 @@ import { getScales } from "./radix-colors";
 import { keysToObj, mergeObjs } from "./utils";
 
 // TODO: Maybe clean up a little bit, it's hard to read.
-export function getTokens() {
-  const scales = getScales();
+export function getTokens(darkMode?: boolean) {
+  const scales = getScales(darkMode);
 
   return mergeObjs(
     {},

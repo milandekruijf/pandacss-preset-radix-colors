@@ -5,7 +5,10 @@ import * as colors from "@radix-ui/colors";
 const SCALE_RESERVED_TAGS = ["P3"];
 
 // Regex that is used to extract tags from a full name.
-const SCALE_TAGS_REGEX = new RegExp(`(${SCALE_RESERVED_TAGS.join("|")})|(?=[A-Z0-9])`, "g");
+const SCALE_TAGS_REGEX = new RegExp(
+  `(${SCALE_RESERVED_TAGS.join("|")})|(?=[A-Z0-9])`,
+  "g"
+);
 
 export type Scale = {
   fullName: string;
@@ -67,13 +70,13 @@ export function getScaleShades(value: any) {
   );
 }
 
-export function getScales(): Scale[] {
+export function getScales(darkMode?: boolean): Scale[] {
   return Object.entries(colors).map(([fullName, value]) => {
     const tags = getScaleTags(fullName);
     const dark = isScaleDark(tags);
 
     // If the scale isn't dark, add light to the 1st index.
-    if (!dark) tags.splice(1, 0, "light");
+    if (!dark && darkMode) tags.splice(1, 0, "light");
 
     return {
       fullName,

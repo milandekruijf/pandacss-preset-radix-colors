@@ -59,10 +59,10 @@ export function createPreset(options?: PresetOptions): Preset {
     theme: {
       extend: {
         tokens: {
-          colors: getTokens(),
+          colors: getTokens(!!darkMode),
         },
         semanticTokens: {
-          colors: darkMode ? getSemanticTokens() : {},
+          colors: darkMode ? getSemanticTokens(!!darkMode) : {},
         },
       },
     },

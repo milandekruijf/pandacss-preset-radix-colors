@@ -2,8 +2,8 @@ import { getScales } from "./radix-colors";
 import { keysToObj, mergeObjs } from "./utils";
 
 // TODO: Maybe clean up a little bit, it's hard to read.
-export function getSemanticTokens() {
-  const scales = getScales();
+export function getSemanticTokens(darkMode?: boolean) {
+  const scales = getScales(darkMode);
 
   return mergeObjs(
     {},
@@ -18,7 +18,11 @@ export function getSemanticTokens() {
         // Find a dark scale with the exact same properties as the
         // current scale, tanking in account the name, alpha and p3.
         const darkScale = scales.find(
-          (x) => x.name === scale.name && x.alpha === scale.alpha && x.p3 === scale.p3 && x.dark
+          (x) =>
+            x.name === scale.name &&
+            x.alpha === scale.alpha &&
+            x.p3 === scale.p3 &&
+            x.dark
         );
 
         if (!darkScale) return null;

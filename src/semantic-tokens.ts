@@ -1,89 +1,55 @@
-import { slate, slateDark, slateDarkP3, slateP3 } from "@radix-ui/colors";
-import { getScales } from "./radix-colors";
+import { Scale, getScales } from "./radix-colors";
 import { keysToObj, mergeObjs } from "./utils";
 
-export function getSemanticTokens(darkMode?: boolean) {
-  const scales = getScales();
-
-  return {
-    slate: {
-      light: {
-        1: {
-          value: {
-            base: slate.slate1,
-            _p3: "{colors.slate.light.p3.1}",
-          },
-        },
-        p3: {
-          1: {
-            value: slateP3.slate1,
-          },
-        },
-      },
-      dark: {
-        1: {
-          value: {
-            base: slateDark.slate1,
-            _p3: "{colors.slate.dark.p3.1}",
-          },
-        },
-        p3: {
-          1: {
-            value: slateDarkP3.slate1,
-          },
-        },
-      },
-      1: {
-        value: {
-          base: `{colors.slate.light.1}`,
-          _dark: `{colors.slate.dark.1}`,
-        },
-      },
-    },
-  };
-}
-
 // // TODO: Maybe clean up a little bit, it's hard to read.
-// export function getSemanticTokens(darkMode?: boolean) {
-//   const scales = getScales(darkMode);
+export function getSemanticTokens(darkMode?: boolean, autoP3?: boolean) {
+  let scales = getScales(darkMode);
 
-//   return mergeObjs(
-//     {},
-//     ...scales
-//       .filter((scale) => !scale.dark)
-//       .map((scale) => {
-//         // Remove the 'light' tag because otherwise it will be used
-//         // for the semantic token, and we want it to be neutral.
-//         const tagIndex = scale.tags.indexOf("light");
-//         if (tagIndex !== -1) scale.tags.splice(tagIndex, 1);
+  if (darkMode) scales = scales.concat(getScales(false).filter((x) => !x.dark));
 
-//         // Find a dark scale with the exact same properties as the
-//         // current scale, tanking in account the name, alpha and p3.
-//         const darkScale = scales.find(
-//           (x) =>
-//             x.name === scale.name &&
-//             x.alpha === scale.alpha &&
-//             x.p3 === scale.p3 &&
-//             x.dark
-//         );
+  return mergeObjs(
+    {},
+    ...scales.map((scale) => {
+      let lightScale: Scale | undefined = scale.tags.includes("light")
+        ? scale
+        : scales.find(
+            (x) => x.name === scale.name && x.alpha === scale.alpha && x.dark === scale.dark && x.tags.includes("light")
+          );
+      let darkScale: Scale | undefined = undefined;
+      let p3Scale: Scale | undefined = undefined;
 
-//         if (!darkScale) return null;
+      if (darkMode && !scale.dark && !scale.tags.includes("light"))
+        darkScale = scales.find((x) => x.name === scale.name && x.alpha === scale.alpha && x.dark);
+      if (!darkScale && autoP3 && !scale.p3)
+        p3Scale = scales.find((x) => x.name === scale.name && x.alpha === scale.alpha && x.dark === scale.dark && x.p3);
 
-//         return keysToObj(
-//           scale.tags,
-//           Object.assign(
-//             {},
-//             ...Object.entries(scale.shades).map(([i, value]) => ({
-//               [i]: {
-//                 value: {
-//                   base: `{colors.${scale.path}.${i}}`,
-//                   _dark: `{colors.${darkScale.path}.${i}}`,
-//                 },
-//               },
-//             }))
-//           )
-//         );
-//       })
-//       .filter(Boolean)
-//   );
-// }
+      return keysToObj(
+        scale.tags,
+        Object.assign(
+          {},
+          ...Object.entries(scale.shades).map(([i, color]) => {
+            let value: any = color;
+
+            if (darkScale)
+              value = {
+                base: `{colors.${lightScale.path}.${i}}`,
+                _dark: `{colors.${darkScale.path}.${i}}`,
+              };
+
+            if (p3Scale)
+              value = {
+                base: color,
+                _p3: `{colors.${p3Scale.path}.${i}}`,
+              };
+
+            return {
+              [i]: {
+                value,
+              },
+            };
+          })
+        )
+      );
+    })
+  );
+}

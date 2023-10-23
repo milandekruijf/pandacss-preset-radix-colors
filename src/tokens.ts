@@ -15,7 +15,9 @@ export function getTokens(darkMode?: boolean) {
           ...Object.entries(scale.shades).map(([i, value]) => {
             return {
               [i]: {
-                value,
+                value: {
+                  base: value,
+                },
               },
             };
           })

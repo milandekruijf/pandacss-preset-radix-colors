@@ -10,7 +10,7 @@ export default defineConfig({
   include: ["app/**/*.tsx"],
   presets: [
     "@pandacss/dev/presets",
-    radixColors({ darkMode: false }),
+    radixColors({ darkMode: false, autoP3: true }),
     typographyPreset({ recipe: { semanticTokens: { defaults: false } } }),
   ],
   theme: {

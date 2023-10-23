@@ -2,13 +2,9 @@ import { definePreset } from "@pandacss/dev";
 import type { Preset } from "@pandacss/types";
 import { getTokens } from "./tokens";
 import { getSemanticTokens } from "./semantic-tokens";
+import { getConditions } from "./conditions";
 
-/**
- * The default dark mode condition that is used
- * to conditionally enable style when dark mode
- * is enabled.
- */
-export const DEFAULT_DARK_MODE_CONDITION = ".dark &";
+const DEFAULT_DARK_MODE_CONDITION = ".dark &";
 
 /**
  * Options for the preset.
@@ -32,6 +28,13 @@ export interface PresetOptions {
          */
         condition: string;
       };
+  /**
+   * Automatically choose to use the P3 variant
+   * of a color if available when the color gamut
+   * is supported using the p3 condition
+   * (`@media (color-gamut: p3)`)
+   */
+  autoP3?: boolean;
 }
 
 /**
@@ -52,9 +55,7 @@ export function createPreset(options?: PresetOptions): Preset {
 
   return definePreset({
     conditions: {
-      extend: {
-        dark: darkModeCondition,
-      },
+      extend: getConditions(darkModeCondition),
     },
     theme: {
       extend: {

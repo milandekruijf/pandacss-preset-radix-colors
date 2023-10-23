@@ -1,4 +1,3 @@
-import { defineSemanticTokens } from "@pandacss/dev";
 import * as colors from "@radix-ui/colors";
 
 // Reserved tags that shouldn't be split.

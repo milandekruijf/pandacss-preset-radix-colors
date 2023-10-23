@@ -10,18 +10,34 @@ export function getSemanticTokens(darkMode?: boolean, autoP3?: boolean) {
   return mergeObjs(
     {},
     ...scales.map((scale) => {
-      let lightScale: Scale | undefined = scale.tags.includes("light")
-        ? scale
-        : scales.find(
-            (x) => x.name === scale.name && x.alpha === scale.alpha && x.dark === scale.dark && x.tags.includes("light")
-          );
+      let lightScale: Scale | undefined = undefined;
       let darkScale: Scale | undefined = undefined;
       let p3Scale: Scale | undefined = undefined;
 
       if (darkMode && !scale.dark && !scale.tags.includes("light"))
-        darkScale = scales.find((x) => x.name === scale.name && x.alpha === scale.alpha && x.dark);
+        darkScale = scales.find(
+          (x) => x.name === scale.name && x.alpha === scale.alpha && x.dark
+        );
+
       if (!darkScale && autoP3 && !scale.p3)
-        p3Scale = scales.find((x) => x.name === scale.name && x.alpha === scale.alpha && x.dark === scale.dark && x.p3);
+        p3Scale = scales.find(
+          (x) =>
+            x.name === scale.name &&
+            x.alpha === scale.alpha &&
+            x.dark === scale.dark &&
+            x.p3
+        );
+
+      if (darkScale)
+        lightScale = scale.tags.includes("light")
+          ? scale
+          : scales.find(
+              (x) =>
+                x.name === scale.name &&
+                x.alpha === scale.alpha &&
+                x.dark === scale.dark &&
+                x.tags.includes("light")
+            );
 
       return keysToObj(
         scale.tags,

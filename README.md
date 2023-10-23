@@ -61,9 +61,9 @@ presets: [
 
 Using base colors such as `slate.1` or `slate.a.1` would turn into `slate.dark.1` and `slate.dark.a.1` automatically when your condition is met. A new `light` variant (such as `slate.light.1`) will be added as well that can be used to keep a shade light no matter the dark condition.
 
-## Auto P3
+## Auto DCI-P3
 
-You can automatically switch to p3 colors when the end user supports it by setting `autoP3` to `true`. It will basically conditionally change your variables to the p3 variant when the condition `p3` (`@media (color-gamut: p3)`) is met.
+You can automatically switch to DCI-P3 colors when the end user supports it by setting `autoP3` to `true`. It will basically conditionally change your variables to the DCI-P3 variant when the condition `p3` (`@media (color-gamut: p3)`) is met.
 
 ```ts
 ...

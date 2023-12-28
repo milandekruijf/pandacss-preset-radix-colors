@@ -4,8 +4,12 @@ import radixColorsPreset from "../dist";
 
 export default defineConfig({
   presets: [
-    radixColorsPreset({ darkMode: true, autoP3: true }),
-    "@pandacss/preset-panda",
+    radixColorsPreset({
+      darkMode: true,
+      autoP3: true,
+      colorScales: ["gray", "blue"],
+    }),
+    // "@pandacss/preset-panda",
   ],
   outdir: "debug/out",
 });

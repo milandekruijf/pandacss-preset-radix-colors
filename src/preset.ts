@@ -2,6 +2,7 @@ import { definePreset } from "@pandacss/dev";
 import type { Preset } from "@pandacss/types";
 import { getSemanticTokens } from "./semantic-tokens";
 import { getConditions } from "./conditions";
+import { RadixColorScales } from "./types";
 
 const DEFAULT_DARK_MODE_CONDITION = ".dark &";
 
@@ -34,6 +35,11 @@ export interface PresetOptions {
    * (`@media (color-gamut: p3)`)
    */
   autoP3?: boolean;
+  /**
+   * Specify Radix color scales to include. All sets are included by default.
+   * @example `colorScales: ["gray", "blue"]`
+   */
+  colorScales?: RadixColorScales;
 }
 
 /**
@@ -59,7 +65,11 @@ export function createPreset(options?: PresetOptions): Preset {
     theme: {
       extend: {
         semanticTokens: {
-          colors: getSemanticTokens(!!darkMode, options?.autoP3),
+          colors: getSemanticTokens(
+            !!darkMode,
+            options?.autoP3,
+            options?.colorScales
+          ),
         },
       },
     },

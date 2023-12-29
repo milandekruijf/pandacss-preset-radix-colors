@@ -59,6 +59,19 @@ presets: [
 ],
 ```
 
+### Color scales
+
+You can specify what color scales to include to slim down the amount of css variables. All color scales are provided by default. Providing nothing or an empty array will include all color scales.
+
+```ts
+presets: [
+  radixColorsPreset({
+    // Will only include the gray and blue color scale
+    colorScales: ["gray", "blue"],
+  }),
+],
+```
+
 Using base colors such as `slate.1` or `slate.a.1` would turn into `slate.dark.1` and `slate.dark.a.1` automatically when your condition is met. A new `light` variant (such as `slate.light.1`) will be added as well that can be used to keep a shade light no matter the dark condition.
 
 ### Auto DCI-P3
